@@ -52,7 +52,7 @@ public class EventFigure extends RoundedRectangle implements Comparable<EventFig
 		setBackgroundColor(color);
 
 		final float[] hsb = color.getRGB().getHSB();
-		setForegroundColor(RootFigure.getRootFigure(this).getStyleProvider().getColor(new RGB(hsb[0], Math.min(1, hsb[1] * 2f), hsb[2] * 0.8f)));
+		setForegroundColor(RootFigure.getRootFigure(this).getStyleProvider().getColor(new RGB(hsb[0], Math.min(1, (double) hsb[1] * (double) 2.0F ), (double) hsb[2] * (double) 0.8F )));
 
 		setAlpha(150);
 	}

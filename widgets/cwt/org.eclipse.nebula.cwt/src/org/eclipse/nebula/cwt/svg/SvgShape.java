@@ -182,7 +182,7 @@ public class SvgShape extends SvgGraphic {
 				miny = min(miny, pathData.points[i]);
 				maxy = max(maxy, pathData.points[i]);
 			}
-			return new float[] { minx, miny, abs(maxx - minx), abs(maxy - miny) };
+			return new float[] { minx, miny, java.lang.Math.abs((double) maxx - (double) minx ), java.lang.Math.abs((double) maxy - (double) miny ) };
 		} else if(pathData.points.length == 4) {
 			int x = (int) (pathData.points[0]-pathData.points[2]);
 			int y = (int) (pathData.points[1]-pathData.points[3]);

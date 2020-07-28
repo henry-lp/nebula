@@ -72,20 +72,20 @@ public class AdvancedPath extends Path {
 		}
 
 		// Top left corner
-		this.cubicTo(x, y, x, y, x, y + arcHeight);
-		this.cubicTo(x, y, x, y, x + arcWidth, y);
+		this.cubicTo(x, y, x, y, x, (double) y + (double) arcHeight );
+		this.cubicTo(x, y, x, y, (double) x + (double) arcWidth , y);
 
 		// Top right corner
-		this.cubicTo(x + width, y, x + width, y, x + width - arcWidth, y);
-		this.cubicTo(x + width, y, x + width, y, x + width, y + arcHeight);
+		this.cubicTo((double) x + (double) width , y, (double) x + (double) width , y, ((double) x + (double) width)  - arcWidth, y);
+		this.cubicTo((double) x + (double) width , y, (double) x + (double) width , y, (double) x + (double) width , (double) y + (double) arcHeight );
 
 		// Bottom right corner
-		this.cubicTo(x + width, y + height, x + width, y + height, x + width, y + height - arcHeight);
-		this.cubicTo(x + width, y + height, x + width, y + height, x + width - arcWidth, y + height);
+		this.cubicTo((double) x + (double) width , (double) y + (double) height , (double) x + (double) width , (double) y + (double) height , (double) x + (double) width , ((double) y + (double) height)  - arcHeight);
+		this.cubicTo((double) x + (double) width , (double) y + (double) height , (double) x + (double) width , (double) y + (double) height , ((double) x + (double) width)  - arcWidth, (double) y + (double) height );
 
 		// Bottom left corner
-		this.cubicTo(x, y + height, x, y + height, x + arcWidth, y + height);
-		this.cubicTo(x, y + height, x, y + height, x, y + height - arcHeight);
+		this.cubicTo(x, (double) y + (double) height , x, (double) y + (double) height , (double) x + (double) arcWidth , (double) y + (double) height );
+		this.cubicTo(x, (double) y + (double) height , x, (double) y + (double) height , x, ((double) y + (double) height)  - arcHeight);
 	}
 
 	/**
@@ -109,18 +109,18 @@ public class AdvancedPath extends Path {
 		}
 
 		// Top left corner
-		this.cubicTo(x, y, x, y, x, y + arcHeight);
-		this.cubicTo(x, y, x, y, x + arcWidth, y);
+		this.cubicTo(x, y, x, y, x, (double) y + (double) arcHeight );
+		this.cubicTo(x, y, x, y, (double) x + (double) arcWidth , y);
 
 		// Top right corner
-		this.lineTo(x + width, y);
+		this.lineTo((double) x + (double) width , y);
 
 		// Bottom right corner
-		this.lineTo(x + width, y + height);
+		this.lineTo((double) x + (double) width , (double) y + (double) height );
 
 		// Bottom left corner
-		this.cubicTo(x, y + height, x, y + height, x + arcWidth, y + height);
-		this.cubicTo(x, y + height, x, y + height, x, y + height - arcHeight);
+		this.cubicTo(x, (double) y + (double) height , x, (double) y + (double) height , (double) x + (double) arcWidth , (double) y + (double) height );
+		this.cubicTo(x, (double) y + (double) height , x, (double) y + (double) height , x, ((double) y + (double) height)  - arcHeight);
 	}
 
 	/**
@@ -145,18 +145,18 @@ public class AdvancedPath extends Path {
 
 		// Top left corner
 		moveTo(x, y);
-		lineTo(x + width - arcWidth, y);
+		lineTo(((double) x + (double) width)  - arcWidth, y);
 
 		// Top right corner
-		this.cubicTo(x + width, y, x + width, y, x + width - arcWidth, y);
-		this.cubicTo(x + width, y, x + width, y, x + width, y + arcHeight);
+		this.cubicTo((double) x + (double) width , y, (double) x + (double) width , y, ((double) x + (double) width)  - arcWidth, y);
+		this.cubicTo((double) x + (double) width , y, (double) x + (double) width , y, (double) x + (double) width , (double) y + (double) arcHeight );
 
 		// Bottom right corner
-		this.cubicTo(x + width, y + height, x + width, y + height, x + width, y + height - arcHeight);
-		this.cubicTo(x + width, y + height, x + width, y + height, x + width - arcWidth, y + height);
+		this.cubicTo((double) x + (double) width , (double) y + (double) height , (double) x + (double) width , (double) y + (double) height , (double) x + (double) width , ((double) y + (double) height)  - arcHeight);
+		this.cubicTo((double) x + (double) width , (double) y + (double) height , (double) x + (double) width , (double) y + (double) height , ((double) x + (double) width)  - arcWidth, (double) y + (double) height );
 
 		// Bottom left corner
-		lineTo(x, y + height);
+		lineTo(x, (double) y + (double) height );
 		lineTo(x, y);
 	}
 }

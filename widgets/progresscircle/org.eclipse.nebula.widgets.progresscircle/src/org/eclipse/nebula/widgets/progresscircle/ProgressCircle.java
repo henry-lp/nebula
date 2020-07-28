@@ -143,7 +143,7 @@ public class ProgressCircle extends Canvas {
 			ratio = -1.0f * (minimum - value) / (maximum - minimum);
 		}
 
-		float angle = ratio * 360f;
+		float angle = (double) ratio * (double) 360.0F ;
 		if (minimum < 0 && maximum > 0) {
 			angle += 180;
 		}
@@ -158,7 +158,7 @@ public class ProgressCircle extends Canvas {
 
 		// Draw the unselected part
 		final Path path = new Path(getDisplay());
-		final float unselectedAngle = 360f - angle;
+		final float unselectedAngle = (double) 360.0F - (double) angle ;
 
 		path.addArc(MARGIN, MARGIN, circleSize, circleSize, 90 - angle, -unselectedAngle);
 		path.lineTo((MARGIN + circleSize) / 2, (MARGIN + circleSize) / 2);
@@ -329,7 +329,7 @@ public class ProgressCircle extends Canvas {
 
 			@Override
 			public void run() {
-				floatValue = floatValue + delta;
+				floatValue = (double) floatValue + (double) delta ;
 				value = (int) floatValue;
 				if (isDisposed()) {
 					return;

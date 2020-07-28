@@ -506,7 +506,7 @@ public abstract class AbstractPictureControl<T extends Control> extends
 		int newHeight = maxImageHeight;
 		float w = width;
 		float h = height;
-		float nw = (w / h) * maxImageHeight;
+		float nw = ((double) w / (double) h) * maxImageHeight;
 		int newWidth = (int) nw;
 		return imageData.scaledTo(newWidth, newHeight);
 	}

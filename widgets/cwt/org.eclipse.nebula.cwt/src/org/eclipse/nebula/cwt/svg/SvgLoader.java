@@ -136,16 +136,16 @@ class SvgLoader {
 
 		double radPhi = toRadians(phi);
 
-		double x0 = (cos(radPhi) * ((x1 - x2) / 2)) + (sin(radPhi) * ((y1 - y2) / 2));
-		double y0 = (-sin(radPhi) * ((x1 - x2) / 2)) + (cos(radPhi) * ((y1 - y2) / 2));
-		double lambda = ((x0 * x0) / (rx * rx)) + ((y0 * y0) / (ry * ry));
+		double x0 = (cos(radPhi) * (((double) x1 - (double) x2) / 2)) + (sin(radPhi) * (((double) y1 - (double) y2) / 2));
+		double y0 = (-sin(radPhi) * (((double) x1 - (double) x2) / 2)) + (cos(radPhi) * (((double) y1 - (double) y2) / 2));
+		double lambda = ((x0 * x0) / ((double) rx * (double) rx)) + ((y0 * y0) / ((double) ry * (double) ry));
 		double radicand;
 		if(lambda > 1) {
 			rx *= sqrt(lambda);
 			ry *= sqrt(lambda);
 			radicand = 0;
 		} else {
-			radicand = ((rx * rx * ry * ry) - (rx * rx * y0 * y0) - (ry * ry * x0 * x0)) / ((rx * rx * y0 * y0) + (ry * ry * x0 * x0));
+			radicand = ((((((double) rx * (double) rx)  * ry) * ry) - ((((double) rx * (double) rx)  * y0) * y0)) - ((((double) ry * (double) ry)  * x0) * x0)) / (((((double) rx * (double) rx)  * y0) * y0) + ((((double) ry * (double) ry)  * x0) * x0));
 		}
 		if(radicand < 0) {
 			rx *= sqrt(lambda);
@@ -155,8 +155,8 @@ class SvgLoader {
 		int sign = (largeArc != sweep) ? 1 : -1;
 		double cx0 = sign * sqrt(radicand) * rx * y0 / ry;
 		double cy0 = sign * sqrt(radicand) * -ry * x0 / rx;
-		double cx = (cos(radPhi) * cx0) - (sin(radPhi) * cy0) + ((x1 + x2) / 2);
-		double cy = (sin(radPhi) * cx0) + (cos(radPhi) * cy0) + ((y1 + y2) / 2);
+		double cx = (cos(radPhi) * cx0) - (sin(radPhi) * cy0) + (((double) x1 + (double) x2) / 2);
+		double cy = (sin(radPhi) * cx0) + (cos(radPhi) * cy0) + (((double) y1 + (double) y2) / 2);
 
 		double theta1 = getAngle(1, 0, (x0 - cx0) / rx, (y0 - cy0) / ry);
 		double dTheta = getAngle((x0 - cx0) / rx, (y0 - cy0) / ry, (-x0 - cx0) / rx, (-y0 - cy0) / ry);

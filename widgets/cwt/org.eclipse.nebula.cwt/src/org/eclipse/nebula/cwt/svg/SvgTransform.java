@@ -20,7 +20,7 @@ import static java.lang.Math.toRadians;
 class SvgTransform {
 
 	enum Type {
-		Matrix, Translate, Scale, Rotate, SkewX, SkewY
+		Matrix, Translate, Scale, Rotate, SkewX, SkewY;
 	}
 
 	SvgTransform next;
@@ -32,8 +32,8 @@ class SvgTransform {
 
 	float[] apply(float x, float y) {
 		float[] v = new float[2];
-		v[0] = data[0] * x + data[2] * y + data[4];
-		v[1] = data[1] * x + data[3] * y + data[5];
+		v[0] = (((double) data[0] * (double) x)  + ((double) data[2] * (double) y) ) + data[4];
+		v[1] = (((double) data[1] * (double) x)  + ((double) data[3] * (double) y) ) + data[5];
 		return v;
 	}
 
